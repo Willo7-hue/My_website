@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        header { background: #333; color: #fff; padding: 20px; text-align: center; font-size: 24px; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 5px; }
+        .post { padding: 15px; border-bottom: 1px solid #ddd; }
+        .post:last-child { border-bottom: none; }
+        .post h2 { margin: 0; }
+        .post p { color: #555; }
+        .form-group { margin-bottom: 10px; }
+        .btn { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; }
+        .btn:hover { background: #555; }
+    </style>
+</head>
+<body>
+    <header>My Personal Blog</header>
+    <div class="container">
+        <h2>New Post</h2>
+        <div class="form-group">
+            <input type="text" id="title" placeholder="Post Title" style="width: 100%; padding: 8px;">
+        </div>
+        <div class="form-group">
+            <textarea id="content" placeholder="Write your post..." style="width: 100%; padding: 8px;"></textarea>
+        </div>
+        <button class="btn" onclick="addPost()">Publish</button><h2>Recent Posts</h2>
+    <div id="posts"></div>
+</div>
+
+<script>
+    function addPost() {
+        let title = document.getElementById('title').value;
+        let content = document.getElementById('content').value;
+        if (title && content) {
+            let postContainer = document.getElementById('posts');
+            let post = document.createElement('div');
+            post.classList.add('post');
+            post.innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+            postContainer.prepend(post);
+            document.getElementById('title').value = '';
+            document.getElementById('content').value = '';
+        } else {
+            alert('Please enter both title and content.');
+        }
+    }
+</script>
+
+</body>
+</html>￼Enter
